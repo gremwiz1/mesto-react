@@ -24,7 +24,7 @@ function Main(props) {
             <section className="profile">
                 <div className="profile__change-avatar">
                     <button onClick={props.onEditAvatar} className="profile__button-change-avatar" type="button" id="buttonChangeAvatar"></button>
-                    <img className="profile__avatar" style={{ backgroundImage: `url(${userAvatar})` }} />
+                    <img className="profile__avatar" style={{ backgroundImage: `url(${userAvatar})` }}/>
 
                 </div>
 
