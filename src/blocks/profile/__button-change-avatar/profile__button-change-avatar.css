@@ -1,0 +1,16 @@
+.profile__button-change-avatar {
+    background: black;
+    width: 26px;
+    height: 26px;
+    background-image: url(../../../images/button-change-avatar.png);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0;
+    top: 47px;
+    left: 47px;
+    border: none;
+    position: absolute;
+    transition: 1s;
+    z-index: 2;
+}
