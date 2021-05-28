@@ -39,7 +39,7 @@ function App() {
         onClose={closeAllPopups} children={
           <>
             <input className="popup-container__name" id="name-image-input" type="text" name="nameimage"
-              placeholder="Название" minlength="2" maxlength="30" required />
+              placeholder="Название" minLength="2" maxLength="30" required />
             <span className="popup-container__error" id="name-image-input-error"></span>
             <input className="popup-container__name" id="url-image-input" type="url" name="path"
               placeholder="Ссылка на картинку" required />
@@ -50,10 +50,10 @@ function App() {
         onClose={closeAllPopups} children={
           <>
             <input className="popup-container__name" id="name-input" type="text" name="name" placeholder="Имя"
-              minlength="2" maxlength="40" required />
+              minLength="2" maxLength="40" required />
             <span className="popup-container__error" id="name-input-error"></span>
             <input className="popup-container__name" id="profession-input" type="text" name="about"
-              placeholder="Вид деятельности" minlength="2" maxlength="200" required />
+              placeholder="Вид деятельности" minLength="2" maxLength="200" required />
             <span className="popup-container__error" id="profession-input-error"></span>
           </>
         } />
