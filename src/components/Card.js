@@ -1,18 +1,18 @@
 import React from 'react';
-function Card(props) {
+function Card({card, onCardClick}) {
     function handleCardClick() {
-        props.onCardClick(props.card);
+        onCardClick(card);
     }
     return (
         <div className="element">
             <button className="element__button-delete"></button>
-            <img className="element__image" alt={`${props.card.name}`} src={props.card.link}
+            <img className="element__image" alt={`${card.name}`} src={card.link}
                 onClick={handleCardClick} />
             <div className="element__description">
-                <h2 className="element__title">{props.card.name}</h2>
+                <h2 className="element__title">{card.name}</h2>
                 <div>
                     <button className="element__like" type="button"></button>
-                    <p className="element__like-numbers">{(props.card.likes) ? props.card.likes.length : 0}</p>
+                    <p className="element__like-numbers">{card.likes.length}</p>
 
                 </div>
 

@@ -1,10 +1,15 @@
-# Getting Started with Create React App
+# Проект 4: Место-реакт
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### Обзор
 
-## Available Scripts
+* В данном проекте используются технологии построения сетки grid и flex.
+* Здесь используются формы input и javascript.
+* Данный проект создан на фрейморке React
 
-In the project directory, you can run:
+**Figma**
+
+* [Ссылка на макет в Figma](https://www.figma.com/file/2cn9N9jSkmxD84oJik7xL7/JavaScript.-Sprint-4?node-id=0%3A1)
+
 
 ### `npm start`
 
