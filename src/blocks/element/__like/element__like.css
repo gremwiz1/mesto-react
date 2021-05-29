@@ -9,6 +9,7 @@
     margin-top: 5px;
     margin-bottom: 1px;
     border: none;
+    background-color: #ffffff;
 }
 .element__like:hover {
     opacity: 0.5;
