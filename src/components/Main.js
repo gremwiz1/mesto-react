@@ -22,17 +22,13 @@ function Main(props) {
     return (
         <main className="content">
             <section className="profile">
-                <div className="profile__change-avatar">
-                    <button onClick={props.onEditAvatar} className="profile__button-change-avatar" type="button" id="buttonChangeAvatar"></button>
-                    <img className="profile__avatar" style={{ backgroundImage: `url(${userAvatar})` }}/>
-
+                <div className="profile__change-avatar" onClick={props.onEditAvatar}>
+                    <img className="profile__avatar" src={`${userAvatar}`} />
                 </div>
-
                 <div className="profile__info">
                     <h1 className="profile__title">{userName}</h1>
                     <button onClick={props.onEditProfile} className="profile-button" type="button"></button>
                     <p className="profile__profession">{userDescription}</p>
-
                 </div>
                 <button onClick={props.onAddPlace} className="add-button" type="button"></button>
             </section>
@@ -42,9 +38,6 @@ function Main(props) {
 
                 ))}
             </section>
-
-
-
         </main>
     );
 }

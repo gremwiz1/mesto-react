@@ -28,43 +28,47 @@ function App() {
     setSelectedCard(card);
   }
   return (
-    <div className="page">
-      <Header />
-      <Main onAddPlace={handleAddPlaceClick} onEditProfile={handleEditProfileClick} onEditAvatar={handleEditAvatarClick}
-        onCardClick={handleCardClick} />
-      <Footer />
-      <PopupWithForm isOpen={isAddPlacePopupOpen} name={'popup_add-card'} title={"Новое место"}
-        onClose={closeAllPopups} children={
-          <>
-            <input className="popup-container__name" type="text" name="nameimage"
-              placeholder="Название" minLength="2" maxLength="30" required />
-            <span className="popup-container__error"></span>
-            <input className="popup-container__name"type="url" name="path"
-              placeholder="Ссылка на картинку" required />
-            <span className="popup-container__error"></span>
-          </>
-        } />
-      <PopupWithForm isOpen={isEditProfilePopupOpen} name={'popup_edit-profile'} title={'Редактировать профиль'}
-        onClose={closeAllPopups} children={
-          <>
-            <input className="popup-container__name" type="text" name="name" placeholder="Имя"
-              minLength="2" maxLength="40" required />
-            <span className="popup-container__error"></span>
-            <input className="popup-container__name" type="text" name="about"
-              placeholder="Вид деятельности" minLength="2" maxLength="200" required />
-            <span className="popup-container__error"></span>
-          </>
-        } />
-      <PopupWithForm isOpen={isEditAvatarPopupOpen} name={'popup_change-avatar'} title={'Обновить аватар'}
-        onClose={closeAllPopups} children={
-          <>
-            <input className="popup-container__name" type="url" name="path"
-              placeholder="https://somewebsite.com/someimage.jpg" required />
-            <span className="popup-container__error"></span>
-          </>
-        } />
-      <ImagePopup card={selectedCard} onClose={closeAllPopups} />
+    <div className="root">
+      <div className="page">
+        <Header />
+        <Main onAddPlace={handleAddPlaceClick} onEditProfile={handleEditProfileClick} onEditAvatar={handleEditAvatarClick}
+          onCardClick={handleCardClick} />
+        <Footer />
+        <PopupWithForm isOpen={isAddPlacePopupOpen} name={'popup_add-card'} title={"Новое место"}
+          onClose={closeAllPopups} children={
+            <>
+              <input className="popup-container__name" type="text" name="nameimage"
+                placeholder="Название" minLength="2" maxLength="30" required />
+              <span className="popup-container__error"></span>
+              <input className="popup-container__name" type="url" name="path"
+                placeholder="Ссылка на картинку" required />
+              <span className="popup-container__error"></span>
+            </>
+          } />
+        <PopupWithForm isOpen={isEditProfilePopupOpen} name={'popup_edit-profile'} title={'Редактировать профиль'}
+          onClose={closeAllPopups} children={
+            <>
+              <input className="popup-container__name" type="text" name="name" placeholder="Имя"
+                minLength="2" maxLength="40" required />
+              <span className="popup-container__error"></span>
+              <input className="popup-container__name" type="text" name="about"
+                placeholder="Вид деятельности" minLength="2" maxLength="200" required />
+              <span className="popup-container__error"></span>
+            </>
+          } />
+        <PopupWithForm isOpen={isEditAvatarPopupOpen} name={'popup_change-avatar'} title={'Обновить аватар'}
+          onClose={closeAllPopups} children={
+            <>
+              <input className="popup-container__name" type="url" name="path"
+                placeholder="https://somewebsite.com/someimage.jpg" required />
+              <span className="popup-container__error"></span>
+            </>
+          } />
+        <ImagePopup card={selectedCard} onClose={closeAllPopups} />
+      </div>
+
     </div>
+
   );
 }
 
