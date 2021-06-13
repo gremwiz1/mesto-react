@@ -138,7 +138,7 @@ class Api {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
-        avatar: item.path
+        avatar: item
 
       })
     })
