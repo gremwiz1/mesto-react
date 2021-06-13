@@ -4,11 +4,22 @@ import Main from './Main';
 import Footer from './Footer';
 import PopupWithForm from './PopupWithForm';
 import ImagePopup from './ImagePopup';
+import api from '../utils/Api';
+import {CurrentUserContext} from '../contexts/CurrentUserContext';
 function App() {
   const [isAddPlacePopupOpen, setIsAddPlacePopupOpen] = React.useState(false);
   const [isEditProfilePopupOpen, setIsEditProfilePopupOpen] = React.useState(false);
   const [isEditAvatarPopupOpen, setIsEditAvatarPopupOpen] = React.useState(false);
   const [selectedCard, setSelectedCard] = React.useState(null);
+  const [currentUser, setCurrentUser] = React.useState({});
+  React.useEffect(() => {
+    api.getUserProfile()
+    .then((result) => {
+        setCurrentUser(result)
+    }).catch((err) => {
+        console.log(err);
+    })
+}, []);
   function closeAllPopups() {
     setIsEditAvatarPopupOpen(false);
     setIsEditProfilePopupOpen(false);
@@ -31,8 +42,10 @@ function App() {
     <div className="root">
       <div className="page">
         <Header />
+        <CurrentUserContext.Provider value={currentUser}>
         <Main onAddPlace={handleAddPlaceClick} onEditProfile={handleEditProfileClick} onEditAvatar={handleEditAvatarClick}
           onCardClick={handleCardClick} />
+          </CurrentUserContext.Provider>
         <Footer />
         <PopupWithForm isOpen={isAddPlacePopupOpen} name={'popup_add-card'} title={"Новое место"}
           onClose={closeAllPopups} children={
