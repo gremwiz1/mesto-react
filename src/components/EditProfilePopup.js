@@ -12,9 +12,9 @@ function EditProfilePopup({ isOpen, onClose, onUpdateUser }) {
         setDescription(e.target.value);
     }
     React.useEffect(() => {
-        setName(currentUser.name);
-        setDescription(currentUser.about);
-    }, [currentUser]);
+        setName(currentUser.name || "");
+        setDescription(currentUser.about || "");
+    }, [currentUser, isOpen]);
     function handleSubmit(evt) {
         // Запрещаем браузеру переходить по адресу формы
         evt.preventDefault();

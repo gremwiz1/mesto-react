@@ -16,13 +16,17 @@ function App() {
   const [currentUser, setCurrentUser] = React.useState({});
   const [cards, setCards] = React.useState([]);
   React.useEffect(() => {
-    api.getUserProfile()
-      .then((result) => {
-        setCurrentUser(result)
-      }).catch((err) => {
-        console.log(err);
-      })
+    Promise.all([
+      api.getUserProfile(),
+      api.getInitialCards()
+    ]).then(([result, cards]) => {
+      setCurrentUser(result);
+      setCards(cards);
+    }).catch((err) => {
+      console.log(err);
+    })
   }, []);
+
   function closeAllPopups() {
     setIsEditAvatarPopupOpen(false);
     setIsEditProfilePopupOpen(false);
@@ -45,21 +49,21 @@ function App() {
 
     api.editUserProfile(item)
       .then((result) => {
-        setCurrentUser(result)
+        setCurrentUser(result);
+        closeAllPopups();
       }).catch((err) => {
         console.log(err);
       });
-    closeAllPopups();
   }
   function handleUpdateAvatar(avatar) {
     console.log(avatar);
     api.changeAvatarImage(avatar.avatar)
       .then((result) => {
-        setCurrentUser(result)
+        setCurrentUser(result);
+        closeAllPopups();
       }).catch((err) => {
         console.log(err);
       });
-    closeAllPopups();
   }
   function handleCardLike(card) {
     // Снова проверяем, есть ли уже лайк на этой карточке
@@ -91,22 +95,14 @@ function App() {
         console.log(err);
       })
   }
-  React.useEffect(() => {
-    api.getInitialCards()
-      .then((cards) => {
-        setCards(cards);
-      }).catch((err) => {
-        console.log(err);
-      })
-  }, []);
   function handleAddPlaceSubmit(card) {
     api.addItem(card)
       .then((newCard) => {
         setCards([newCard, ...cards]);
+        closeAllPopups();
       }).catch((err) => {
         console.log(err);
       });
-    closeAllPopups();
   }
 
   return (
